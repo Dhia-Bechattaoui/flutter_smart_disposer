@@ -1,6 +1,9 @@
 # Flutter Smart Disposer
 
-![Flutter Smart Disposer Banner](assets/banner.png)
+<p align="center">
+  <img src="assets/banner.png" width="600" alt="Flutter Smart Disposer Banner">
+</p>
+
 
 A VS Code extension that automates the detection and disposal of memory-leaking objects in Flutter.
 
@@ -34,4 +37,4 @@ Contributions are welcome. Please ensure that new features include relevant test
 
 ---
 
-Maintainer: [dhia](https://github.com/dhia)
+Maintainer: [dhia-bechattaoui](https://github.com/dhia-bechattaoui)

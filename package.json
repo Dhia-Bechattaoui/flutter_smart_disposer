@@ -2,8 +2,12 @@
   "name": "flutter-smart-disposer",
   "displayName": "Flutter Smart Disposer",
   "description": "Automatically detect and fix undisposed controllers and subscriptions in Flutter.",
-  "version": "0.0.1",
-  "publisher": "antigravity",
+  "version": "0.0.2",
+  "publisher": "dhia-bechattaoui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dhia-bechattaoui/flutter-smart-disposer.git"
+  },
   "engines": {
     "vscode": "^1.90.0"
   },
@@ -29,6 +33,7 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
+    "test:core": "mocha out/test/core/**/*.test.js",
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
