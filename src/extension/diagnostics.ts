@@ -5,11 +5,13 @@ export class DiagnosticProvider {
     private readonly analyzer = new DartAnalyzer();
     private readonly diagnosticCollection = vscode.languages.createDiagnosticCollection('flutter-smart-disposer');
     private debounceTimer: NodeJS.Timeout | undefined;
+    private outputChannel: vscode.OutputChannel | undefined;
 
     /**
      * Activates the diagnostic provider.
      */
-    public activate(context: vscode.ExtensionContext) {
+    public activate(context: vscode.ExtensionContext, outputChannel: vscode.OutputChannel) {
+        this.outputChannel = outputChannel;
         context.subscriptions.push(this.diagnosticCollection);
 
         // Listen for document events
@@ -69,8 +71,7 @@ export class DiagnosticProvider {
 
             this.diagnosticCollection.set(document.uri, diagnostics);
         } catch (error) {
-            console.error('Error refreshing diagnostics:', error);
-            // Log to output channel if needed
+            this.outputChannel?.appendLine(`Error refreshing diagnostics: ${error}`);
         }
     }
 }

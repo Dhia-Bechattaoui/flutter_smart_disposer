@@ -8,9 +8,13 @@ import { CodeActionProvider } from './extension/code_actions';
 export function activate(context: vscode.ExtensionContext) {
     console.log('Congratulations, your extension "flutter-smart-disposer" is now active!');
 
+    // Initialize Output Channel (Core Architecture Rule #4)
+    const outputChannel = vscode.window.createOutputChannel('Flutter Smart Disposer');
+    outputChannel.appendLine('Flutter Smart Disposer is active.');
+
     // Initialize Diagnostic Provider (Phase 3)
     const diagnosticProvider = new DiagnosticProvider();
-    diagnosticProvider.activate(context);
+    diagnosticProvider.activate(context, outputChannel);
 
     // Initialize Code Action Provider (Phase 4)
     context.subscriptions.push(
@@ -25,10 +29,6 @@ export function activate(context: vscode.ExtensionContext) {
     });
 
     context.subscriptions.push(disposable);
-    
-    // Log activation to output channel
-    const outputChannel = vscode.window.createOutputChannel('Flutter Smart Disposer');
-    outputChannel.appendLine('Flutter Smart Disposer is active.');
 }
 
 /**

@@ -84,4 +84,40 @@ class _MyWidgetState extends State<MyWidget> {
     const result = analyzer.analyze(code);
     assert.strictEqual(result.stateClasses[0].variables[0].isDisposed, true);
   });
+
+  it('should handle multiple State classes in one file', () => {
+    const code = `
+class _FirstState extends State<First> {
+  final _c1 = TextEditingController();
+  @override
+  void dispose() {
+    _c1.dispose();
+    super.dispose();
+  }
+}
+
+class _SecondState extends State<Second> {
+  final _c2 = TextEditingController();
+  @override
+  void dispose() {
+    super.dispose();
+  }
+}
+        `;
+    const result = analyzer.analyze(code);
+    assert.strictEqual(result.stateClasses.length, 2);
+    assert.strictEqual(result.stateClasses[0].variables[0].isDisposed, true);
+    assert.strictEqual(result.stateClasses[1].variables[0].isDisposed, false);
+  });
+
+  it('should detect variables in classes without dispose method', () => {
+    const code = `
+class _NoDisposeState extends State<NoDispose> {
+  final _controller = TextEditingController();
+}
+        `;
+    const result = analyzer.analyze(code);
+    assert.strictEqual(result.stateClasses[0].variables.length, 1);
+    assert.strictEqual(result.stateClasses[0].hasDisposeMethod, false);
+  });
 });
