@@ -2,7 +2,7 @@
   "name": "flutter-smart-disposer",
   "displayName": "Flutter Smart Disposer",
   "description": "Automatically detect and fix undisposed controllers and subscriptions in Flutter.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "dhia-bechattaoui",
   "repository": {
     "type": "git",

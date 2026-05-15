@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.4] - 2026-05-15
+
+### Added
+- Implemented `CodeActionProvider` to provide "Quick Fix" actions for memory leaks.
+- Added intelligent injection of disposal calls into existing `dispose()` methods.
+- Implemented automatic generation of missing `dispose()` methods with correct boilerplate.
+- Added support for context-aware disposal calls (`.dispose()` vs `.cancel()`).
+- Ensured code injection respects existing indentation and formatting.
+- Registered the Quick Fix provider for the Dart language.
+
 ## [0.0.3] - 2026-05-15
 
 ### Added
@@ -34,6 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Set up ESLint for code quality and standard enforcement.
 - Created `src/core` and `src/extension` directories for clean architecture separation.
 
+[0.0.4]: https://github.com/dhia-bechattaoui/flutter-smart-disposer/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/dhia-bechattaoui/flutter-smart-disposer/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/dhia-bechattaoui/flutter-smart-disposer/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/dhia-bechattaoui/flutter-smart-disposer/releases/tag/v0.0.1

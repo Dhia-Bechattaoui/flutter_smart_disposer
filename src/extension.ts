@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import { DiagnosticProvider } from './extension/diagnostics';
+import { CodeActionProvider } from './extension/code_actions';
 
 /**
  * This method is called when your extension is activated.
@@ -10,6 +11,13 @@ export function activate(context: vscode.ExtensionContext) {
     // Initialize Diagnostic Provider (Phase 3)
     const diagnosticProvider = new DiagnosticProvider();
     diagnosticProvider.activate(context);
+
+    // Initialize Code Action Provider (Phase 4)
+    context.subscriptions.push(
+        vscode.languages.registerCodeActionsProvider('dart', new CodeActionProvider(), {
+            providedCodeActionKinds: CodeActionProvider.providedCodeActionKinds
+        })
+    );
 
     // The command has been defined in the package.json file
     let disposable = vscode.commands.registerCommand('flutter-smart-disposer.helloWorld', () => {
