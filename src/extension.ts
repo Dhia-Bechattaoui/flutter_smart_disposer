@@ -23,12 +23,6 @@ export function activate(context: vscode.ExtensionContext) {
         })
     );
 
-    // The command has been defined in the package.json file
-    let disposable = vscode.commands.registerCommand('flutter-smart-disposer.helloWorld', () => {
-        vscode.window.showInformationMessage('Hello World from Flutter Smart Disposer!');
-    });
-
-    context.subscriptions.push(disposable);
 }
 
 /**

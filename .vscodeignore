@@ -1,0 +1,12 @@
+.vscode/**
+.vscode-test/**
+.agents/**
+out/test/**
+src/**
+.gitignore
+.tsconfig.json
+tsconfig.json
+package-lock.json
+plan.md
+assets/banner.png
+**/.*

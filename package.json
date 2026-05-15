@@ -3,7 +3,9 @@
   "displayName": "Flutter Smart Disposer",
   "description": "Automatically detect and fix undisposed controllers and subscriptions in Flutter.",
   "version": "0.0.5",
-  "publisher": "dhia-bechattaoui",
+  "icon": "assets/icon.png",
+  "publisher": "bechattaoui",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/dhia-bechattaoui/flutter-smart-disposer.git"
@@ -15,18 +17,19 @@
     "Linters",
     "Programming Languages"
   ],
+  "keywords": [
+    "flutter",
+    "dart",
+    "memory leaks",
+    "disposable",
+    "controller",
+    "cleanup"
+  ],
   "activationEvents": [
     "onLanguage:dart"
   ],
   "main": "./out/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "flutter-smart-disposer.helloWorld",
-        "title": "Hello World"
-      }
-    ]
-  },
+  "contributes": {},
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
